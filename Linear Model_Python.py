@@ -16,13 +16,15 @@ dataset = pd.read_csv(sys.argv[1])
 print("loading {}".format(sys.argv[1]))
 
 
+# Plot scatter plot
 dataset.plot(x='x', y='y', style='.')  
-plt.title('Example Linear Model')  
+plt.title('Scatter Data')  
 plt.xlabel('X')  
 plt.ylabel('Y')  
-plt.savefig("Python_Data Scatter.png")
+plt.savefig("Python_Scatter Data.png")
 
 
+# Plot regression
 x = dataset['x'].values.reshape(-1,1)
 y = dataset['y'].values.reshape(-1,1)
 x_train = x
@@ -31,5 +33,6 @@ regressor = LinearRegression()
 regressor.fit(x_train, y_train) #training the algorithm
 y_pred = regressor.predict(x)
 plt.scatter(x, y,  color='black', marker='.')
+plt.title('Regression Data')
 plt.plot(x, y_pred, color='black', linewidth=1)
-plt.savefig("Python_Data Regression.png")
+plt.savefig("Python_Regression Data.png")
